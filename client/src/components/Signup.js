@@ -9,7 +9,7 @@ function Signup() {
     const navigate = useNavigate();
     const handleSignup = (e) => {
         e.preventDefault();
-        fetch("/signup", {
+        fetch("/api/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
