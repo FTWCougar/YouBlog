@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
     skip_before_action :authorize, only: %i[create show]
     def create
         user = User.create(user_params)
