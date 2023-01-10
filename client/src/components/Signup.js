@@ -62,7 +62,7 @@ function Signup() {
                         <button className="login-buttons">Signup</button>
                     </div>
                     <p>
-                        Back to <NavLink to="/login">login</NavLink>
+                        Back to <NavLink to="/">login</NavLink>
                     </p>
                 </form>
             </div>
