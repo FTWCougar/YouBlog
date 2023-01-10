@@ -14,9 +14,7 @@ const Logout = ({setUser}) => {
         })
       }
     return (
-        <div>
-            <button onClick={handleLogout} className="logout-button">Logout</button>
-        </div>
+        <button onClick={handleLogout} className="logout-button">Logout</button>
     )
 }
 export default Logout;

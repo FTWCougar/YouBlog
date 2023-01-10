@@ -69,8 +69,9 @@
   font-weight: bold;
 }
 
-.logout-button{
-  position: fixed;
-  margin: 2%;
-  right: 0;
+.nav-bar {
+  display: flex;
+  justify-content: space-around;
+  max-width: 15%;
+  margin: auto;
 }

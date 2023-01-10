@@ -3,8 +3,8 @@ import {Routes, Route} from "react-router-dom"
 import Login from './components/Login';
 import Signup from './components/Signup';
 import { useState, useEffect } from 'react';
-import Logout from './components/Logout';
 import HomePage from './components/HomePage';
+import NavBar from './components/NavBar';
 
 
 function App() {
@@ -26,11 +26,11 @@ function App() {
 
   return (
     <div className="App">
-      {user ? <Logout setUser={setUser}/> : console.log(user)}
+      {user ? <NavBar user={user} setUser={setUser}/> : null}
       <Routes>
         <Route path='/login' element={<Login setUser={setUser}/>}/>
         <Route path='/signup' element={<Signup/>}/>
-        <Route path='/' element={<HomePage/>}/>
+        <Route path='/' element={<HomePage user={user}/>}/>
       </Routes>
     </div>
   );

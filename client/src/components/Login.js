@@ -18,8 +18,10 @@ const Login = ({ setUser }) => {
             body: JSON.stringify({ username: username, password: password }),
         }).then((r) => {
             if (r.ok) {
-                r.json().then((user) => setUser(user));
-                navigate("/");
+                r.json().then((user) => {
+                  setUser(user)
+                  navigate("/");
+                });
             } else {
                 r.json().then((err) => {
                     console.log(err);
