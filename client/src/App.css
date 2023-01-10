@@ -1,6 +1,7 @@
 .App {
   text-align: center;
 }
+
 .login-container {
   min-height: 100vh;
   display: flex;
@@ -29,6 +30,7 @@
   background-color:rgba(255, 255, 240, .75);
   width: 90%;
 }
+
 .login-buttons {
   padding: 5%;
   margin: 2%;
@@ -39,21 +41,36 @@
   width: 50%;
   text-align: center;
 }
+
 .login-buttons:hover {
   background-color:rgba(100, 149, 237, .75);
-  font-size: 14px;
+  width: 51%;
 }
+
 .login-title{
   position: fixed;
   margin: 2%;
 }
+
 .login-fields{
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 100%;
 }
+
+#login1:hover, #login2:hover, #login3:hover{
+  width: 91%;
+}
+
 .error {
   color: red;
   font-weight: bold;
+}
+
+.logout-button{
+  position: fixed;
+  margin: 2%;
+  right: 0;
 }

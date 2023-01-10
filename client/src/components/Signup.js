@@ -35,6 +35,7 @@ function Signup() {
                     <div className="login-fields">
                         <input
                             className="login-input"
+                            id="login1"
                             placeholder="Username"
                             value={newUser}
                             onChange={(e) => setNewUser(e.target.value)}
@@ -42,6 +43,7 @@ function Signup() {
                         />
                         <input
                             className="login-input"
+                            id="login2"
                             placeholder="Password"
                             type="password"
                             value={newPass}
@@ -50,6 +52,7 @@ function Signup() {
                         />
                         <input
                             className="login-input"
+                            id="login3"
                             placeholder="Confirm Password"
                             type="password"
                             value={newConfirm}

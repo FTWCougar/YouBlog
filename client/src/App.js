@@ -1,8 +1,10 @@
 import './App.css';
-import {Routes, Route, redirect} from "react-router-dom"
+import {Routes, Route} from "react-router-dom"
 import Login from './components/Login';
 import Signup from './components/Signup';
 import { useState, useEffect } from 'react';
+import Logout from './components/Logout';
+import HomePage from './components/HomePage';
 
 
 function App() {
@@ -24,9 +26,11 @@ function App() {
 
   return (
     <div className="App">
+      {user ? <Logout setUser={setUser}/> : console.log(user)}
       <Routes>
         <Route path='/login' element={<Login setUser={setUser}/>}/>
         <Route path='/signup' element={<Signup/>}/>
+        <Route path='/' element={<HomePage/>}/>
       </Routes>
     </div>
   );

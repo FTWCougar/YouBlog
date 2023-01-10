@@ -19,7 +19,7 @@ const Login = ({ setUser }) => {
         }).then((r) => {
             if (r.ok) {
                 r.json().then((user) => setUser(user));
-                navigate("/home");
+                navigate("/");
             } else {
                 r.json().then((err) => {
                     console.log(err);
@@ -38,6 +38,7 @@ const Login = ({ setUser }) => {
                     <div className="login-fields">
                         <input
                             className="login-input"
+                            id="login1"
                             placeholder="Username"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
@@ -45,6 +46,7 @@ const Login = ({ setUser }) => {
                         />
                         <input
                             className="login-input"
+                            id="login2"
                             placeholder="Password"
                             type="password"
                             value={password}
@@ -53,10 +55,10 @@ const Login = ({ setUser }) => {
                         />
                         <button className="login-buttons">Login</button>
                     </div>
+                    <p className="error">{errors}</p>
                     <p>
                         Signup <NavLink to="/signup">here</NavLink>
                     </p>
-                <p className="error">{errors}</p>
                 </form>
             </div>
         </>
