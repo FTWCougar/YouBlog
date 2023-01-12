@@ -4,8 +4,8 @@ import Logout from './Logout';
 const NavBar = ({setUser, user}) => {
     return (
         <div className="nav-bar">
-            <NavLink>Home</NavLink>
-            <NavLink>Profile</NavLink>
+            <NavLink className="nav-link">Home</NavLink>
+            <NavLink className="nav-link">Profile</NavLink>
             {user ? <Logout setUser={setUser}/> : console.log(user)}
         </div>
     )

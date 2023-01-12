@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 function Signup() {
+    const [newEmail, setNewEmail] = useState("");
     const [newUser, setNewUser] = useState("");
     const [newPass, setNewPass] = useState("");
     const [newConfirm, setNewConfirm] = useState("");
@@ -16,6 +17,7 @@ function Signup() {
             },
             body: JSON.stringify({
                 username: newUser,
+                email: newEmail,
                 password: newPass,
                 password_confirmation: newConfirm,
             }),
@@ -35,7 +37,14 @@ function Signup() {
                     <div className="login-fields">
                         <input
                             className="login-input"
-                            id="login1"
+                            placeholder="Email"
+                            type="email"
+                            value={newEmail}
+                            onChange={(e) => setNewEmail(e.target.value)}
+                            required
+                        />
+                        <input
+                            className="login-input"
                             placeholder="Username"
                             value={newUser}
                             onChange={(e) => setNewUser(e.target.value)}
@@ -43,7 +52,6 @@ function Signup() {
                         />
                         <input
                             className="login-input"
-                            id="login2"
                             placeholder="Password"
                             type="password"
                             value={newPass}
@@ -52,7 +60,6 @@ function Signup() {
                         />
                         <input
                             className="login-input"
-                            id="login3"
                             placeholder="Confirm Password"
                             type="password"
                             value={newConfirm}
@@ -62,7 +69,7 @@ function Signup() {
                         <button className="login-buttons">Signup</button>
                     </div>
                     <p>
-                        Back to <NavLink to="/">login</NavLink>
+                        Back to <NavLink to="/login">login</NavLink>
                     </p>
                 </form>
             </div>

@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
-const Login = ({ setUser }) => {
+const Login = ({ setUser, user }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
 
     const navigate = useNavigate();
+   
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -40,7 +41,6 @@ const Login = ({ setUser }) => {
                     <div className="login-fields">
                         <input
                             className="login-input"
-                            id="login1"
                             placeholder="Username"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
@@ -48,7 +48,6 @@ const Login = ({ setUser }) => {
                         />
                         <input
                             className="login-input"
-                            id="login2"
                             placeholder="Password"
                             type="password"
                             value={password}
