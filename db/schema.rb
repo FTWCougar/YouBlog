@@ -10,20 +10,74 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_09_215805) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_11_174730) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "api_users", force: :cascade do |t|
+  create_table "bloglikes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "blog_id", null: false
+    t.boolean "liked"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["blog_id"], name: "index_bloglikes_on_blog_id"
+    t.index ["user_id"], name: "index_bloglikes_on_user_id"
+  end
+
+  create_table "blogs", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.string "img"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_blogs_on_user_id"
+  end
+
+  create_table "commentlikes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "comment_id", null: false
+    t.boolean "liked"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_commentlikes_on_comment_id"
+    t.index ["user_id"], name: "index_commentlikes_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.bigint "user_id", null: false
+    t.bigint "blog_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_id"], name: "index_comments_on_blog_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "saves", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "blog_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_id"], name: "index_saves_on_blog_id"
+    t.index ["user_id"], name: "index_saves_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
+    t.string "email"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "bloglikes", "blogs"
+  add_foreign_key "bloglikes", "users"
+  add_foreign_key "blogs", "users"
+  add_foreign_key "commentlikes", "comments"
+  add_foreign_key "commentlikes", "users"
+  add_foreign_key "comments", "blogs"
+  add_foreign_key "comments", "users"
+  add_foreign_key "saves", "blogs"
+  add_foreign_key "saves", "users"
 end
