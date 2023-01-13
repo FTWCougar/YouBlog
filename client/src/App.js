@@ -1,14 +1,18 @@
 import "./App.css";
-import { Routes, Route, useNavigate} from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import { useState, useEffect } from "react";
 import HomePage from "./components/HomePage";
 import NavBar from "./components/NavBar";
+import ShowBlog from "./components/ShowBlog";
+import ProfilePage from "./components/ProfilePage";
 
 function App() {
     const [user, setUser] = useState(null);
-const navigate = useNavigate()
+    const [blogId, setBlogId] = useState(null)
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch("/api/me").then((resp) => {
@@ -17,19 +21,25 @@ const navigate = useNavigate()
                     console.log(data);
                     if (data.errors) {
                     } else {
-                      setUser(data);
-                      navigate("/")
+                        setUser(data);
+                        const url = window.location.href.split(
+                            "http://localhost:4000"
+                        );
+                        if (url[1] === "/login" || url[1] === "/signup") {
+                            navigate("/");
+                        }
                     }
-                  });
-                }else {
-                  const url = window.location.href.split("http://localhost:4000")
-                  if (!url[1] === "/signup"){
+                });
+            } else {
+                const url = window.location.href.split("http://localhost:4000");
+                if (url[1] !== "/signup") {
                     navigate("/login");
-
-                  }
+                }
             }
         });
-    }, [navigate]);
+    }, []);
+
+
 
     return (
         <div className="App">
@@ -40,7 +50,25 @@ const navigate = useNavigate()
                     element={<Login user={user} setUser={setUser} />}
                 />
                 <Route path="/signup" element={<Signup />} />
-                <Route path="/" element={<HomePage user={user} />} />
+                {user ? (
+                    <Route
+                        path={`/${user.username}`}
+                        element={<ProfilePage user={user} />}
+                    />
+                ) : null}
+
+                <Route path={`/blogs/${blogId}`} element={<ShowBlog/>} />
+
+                <Route
+                    path="/"
+                    element={
+                        <HomePage
+                            navigate={navigate}
+                            user={user}
+                            setBlogId={setBlogId}
+                        />
+                    }
+                />
             </Routes>
         </div>
     );
