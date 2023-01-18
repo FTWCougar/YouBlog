@@ -1,3 +1,7 @@
+User.destroy_all
+Blog.destroy_all
+Comment.destroy_all
+
 cam = User.create(username: "cam", email: "cam@cam.com", password: "123")
 
 10.times do
