@@ -1,8 +1,8 @@
 
 import BlogCard from "./BlogCard";
 
-const HomePage = ({ user, navigate, setBlogId}) => {
+const HomePage = ({ user, navigate}) => {
 
-    return <div className="home-page">{user ? <BlogCard setBlogId={setBlogId} navigate={navigate}/> : null}</div>;
+    return <div className="home-page">{user ? <BlogCard navigate={navigate}/> : null}</div>;
 };
 export default HomePage;

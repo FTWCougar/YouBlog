@@ -7,4 +7,6 @@ class Api::BlogsController < ApplicationController
         blog = Blog.find_by(id: params[:id])
         render json: blog, status: :ok
     end
+    def create
+    end
 end
