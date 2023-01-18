@@ -5,13 +5,11 @@ import Signup from "./components/Signup";
 import { useState, useEffect } from "react";
 import HomePage from "./components/HomePage";
 import NavBar from "./components/NavBar";
-import ShowBlog from "./components/ShowBlog";
+import ShowBlog from "./components/BlogView";
 import ProfilePage from "./components/ProfilePage";
 
 function App() {
     const [user, setUser] = useState(null);
-    const [blogId, setBlogId] = useState(null)
-
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -37,7 +35,7 @@ function App() {
                 }
             }
         });
-    }, []);
+    }, [navigate]);
 
 
 
@@ -57,7 +55,7 @@ function App() {
                     />
                 ) : null}
 
-                <Route path={`/blogs/${blogId}`} element={<ShowBlog/>} />
+                <Route path={`/blogs/:id`} element={<ShowBlog/>} />
 
                 <Route
                     path="/"
@@ -65,7 +63,6 @@ function App() {
                         <HomePage
                             navigate={navigate}
                             user={user}
-                            setBlogId={setBlogId}
                         />
                     }
                 />

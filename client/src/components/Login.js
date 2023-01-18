@@ -58,7 +58,7 @@ const Login = ({ setUser, user }) => {
                     </div>
                     <p className="error">{errors}</p>
                     <p>
-                        Signup <NavLink to="/signup">here</NavLink>
+                        Signup <NavLink to="/signup" className="nav-link">here</NavLink>
                     </p>
                 </form>
             </div>

@@ -22,6 +22,29 @@
   min-width: 300px;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: rgb(30, 30, 30);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(96, 96, 96);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(30, 30, 30); 
+}
+
+
+
 .login-input {
   padding: 5%;
   margin: 2%;
@@ -88,11 +111,10 @@
   align-items: center;
   justify-content: center;
   padding-top: 50px;
-  background-color: black;
+
 }
 
-.blog-title,
-.blog-username {
+h1, h2, p {
   color: white;
 }
 
@@ -100,7 +122,24 @@
   background-color: black;
 }
 
+hr {
+  background: radial-gradient(rgb(255, 255, 255),rgb(255, 255, 255, .000001),rgba(255, 255, 255, .00001));
+  border: none;
+  height: 5px;
+}
 
+.nav-link {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color:aqua;
+  text-decoration: underline;
+}
+.blog-card:hover .blog-title{
+  color: blueviolet;
+}
 
 /* Chat GPT */
 
