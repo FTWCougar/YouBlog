@@ -6,6 +6,7 @@ function Signup() {
     const [newUser, setNewUser] = useState("");
     const [newPass, setNewPass] = useState("");
     const [newConfirm, setNewConfirm] = useState("");
+    const [errors, setErrors] = useState([]);
 
     const navigate = useNavigate();
     const handleSignup = (e) => {
@@ -25,7 +26,11 @@ function Signup() {
             .then((r) => r.json())
             .then((data) => {
                 console.log(data);
-                navigate("/login");
+                if(!data.errors){
+                    navigate("/login");
+                }else{
+                    setErrors(data.errors)
+                }
             });
     };
     return (
@@ -68,6 +73,7 @@ function Signup() {
                         />
                         <button className="login-buttons">Signup</button>
                     </div>
+                    {!errors ? null : errors.map((error, index) => <p className="error" key={index}>{error}</p>)}
                     <p>
                         Back to <NavLink to="/login" className="nav-link">login</NavLink>
                     </p>

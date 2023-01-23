@@ -7,6 +7,7 @@ import HomePage from "./components/HomePage";
 import NavBar from "./components/NavBar";
 import ShowBlog from "./components/BlogView";
 import ProfilePage from "./components/ProfilePage";
+import BlogPost from "./components/BlogPost";
 
 function App() {
     const [user, setUser] = useState(null);
@@ -55,8 +56,13 @@ function App() {
                     />
                 ) : null}
 
-                <Route path={`/blogs/:id`} element={<ShowBlog/>} />
-
+                <Route path={`/blogs/:id`} element={<ShowBlog user={user}/>} />
+                <Route
+                    path="/post"
+                    element={
+                      <BlogPost user={user}/>
+                    }
+                />
                 <Route
                     path="/"
                     element={

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
-const Login = ({ setUser, user }) => {
+const Login = ({ setUser}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
@@ -56,7 +56,7 @@ const Login = ({ setUser, user }) => {
                         />
                         <button className="login-buttons">Login</button>
                     </div>
-                    <p className="error">{errors}</p>
+                    {!errors ? null : errors.map((error, index) => <p className="error" key={index}>{error}</p>)}
                     <p>
                         Signup <NavLink to="/signup" className="nav-link">here</NavLink>
                     </p>

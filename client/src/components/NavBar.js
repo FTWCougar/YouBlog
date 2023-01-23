@@ -5,8 +5,9 @@ const NavBar = ({setUser, user}) => {
     return (
         <div>
         <div className="nav-bar">
-            <NavLink exact to="/" className="nav-link" >Home</NavLink>
-            <NavLink exact to={`/${user.username}`} className="nav-link">Profile</NavLink>
+            <NavLink to="/" className="nav-link" >Home</NavLink>
+            <NavLink to={`/${user.username}`} className="nav-link">Profile</NavLink>
+            <NavLink to={`/post`} className="nav-link">New Post</NavLink>
             {user ? <Logout setUser={setUser}/> : console.log(user)}
         </div>
         </div>

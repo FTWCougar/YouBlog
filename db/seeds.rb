@@ -11,24 +11,38 @@ cam = User.create(username: "cam", email: "cam@cam.com", password: "123")
         password: Faker::Internet.password,
     )
 end
-
 10.times do
     Blog.create(
         title: Faker::Lorem.sentence(word_count: 3),
         body: Faker::Lorem.paragraph_by_chars(number: 512),
         img:
-            Faker::LoremFlickr.image(
-                size: "750x250",
-                search_terms: ["programming"],
-                match_all: false,
-            ),
+        Faker::LoremFlickr.image(
+            size: "750x250",
+            search_terms: ["programming"],
+            match_all: false,
+        ),
         user: User.all.sample,
     )
-    5.times do
-        Comment.create(
-            body: Faker::Quote.yoda,
-            blog: Blog.all.sample,
-            user: User.all.sample,
-        )
-    end
+end
+
+35.times do
+    Comment.create(
+        body: Faker::Quote.yoda,
+        blog: Blog.all.sample,
+        user: User.all.sample,
+    )
+end
+100.times do
+    Bloglike.create(
+        liked: [true, false].sample,
+        blog: Blog.all.sample,
+        user: User.all.sample,
+    )
+end
+100.times do
+    Commentlike.create(
+        liked: [true, false].sample,
+        comment: Comment.all.sample,
+        user: User.all.sample,
+    )
 end

@@ -1,9 +1,9 @@
 class BlogSerializer < ActiveModel::Serializer
-    attributes :id, :title, :body, :img, :comments
+    attributes :id, :title, :body, :img, :comments, :get_like, :get_dislike
     belongs_to :user
-    has_many :bloglikes
-
+    
     def comments
-        ActiveModel::SerializableResource.new(object.comments)
+        ActiveModel::SerializableResource.new(object.comments.order(created_at: :desc))
     end
+
 end
