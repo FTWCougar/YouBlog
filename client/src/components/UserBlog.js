@@ -39,11 +39,15 @@ const UserBlog = ({user}) => {
 
 
     return (
-    <div className="blogs">
+    <div className="profile-blogs">
+        <div className="user-blog">
         <h1>Your Blogs</h1>
         {mappedTitles}
+        </div>
+        <div className="user-saves">
         <h1>Saved</h1>
         {mappedSaves}
+        </div>
     </div>
     )
 };

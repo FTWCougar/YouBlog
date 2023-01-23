@@ -27,9 +27,11 @@ const CommentPost = ({user, setBlog, blog}) => {
         
     }
   return(
-    <div>
+    <div className="comment-form">
+        <p>Leave a comment...</p>
         <form>
             <input value={body} placeholder="Body" onChange={(e) => setBody(e.target.value)}/>
+            <br/>
             <br/>
             <button onClick={handleSubmit}>Post</button>
         </form>

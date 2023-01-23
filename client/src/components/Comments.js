@@ -40,7 +40,7 @@ const Comments = ({ blog, user, setBlog }) => {
             const test = newArr.map((comment) => {
                 console.log(comment);
                 return (
-                    <div>
+                    <div key={comment.id} className="comment-card">
                         <h1>{comment.user.username}</h1>
                         <p>{comment.body}</p>
                         <button value={true} name={comment.id} onClick={likeHandler}>
@@ -59,17 +59,20 @@ const Comments = ({ blog, user, setBlog }) => {
             const test = blog.comments.map((comment) => {
                 console.log(comment);
                 return (
-                    <div key={comment.id}>
+                    <div key={comment.id} className="comment-card">
                         <h1>{comment.user.username}</h1>
                         <p>{comment.body}</p>
+                        <div className="comment-buttons">
+                        <p>{comment.get_like}</p>
                         <button value={true} name={comment.id} onClick={likeHandler}>
                             Like
                         </button>
-                        <p>{comment.get_like}</p>
                         <button value={false} name={comment.id} onClick={likeHandler}>
                             Dislike
                         </button>
                         <p>{comment.get_dislike}</p>
+                        </div>
+                        <br/>
                     </div>
                 );
             });
