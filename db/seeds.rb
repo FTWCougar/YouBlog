@@ -3,8 +3,9 @@ Blog.destroy_all
 Comment.destroy_all
 
 cam = User.create(username: "cam", email: "cam@cam.com", password: "123")
+
 puts "🌱 Seeding Users..."
-25.times do
+10.times do
     User.create(
         username: Faker::Internet.username,
         email: Faker::Internet.safe_email(name: Faker::Internet.username),
@@ -13,7 +14,7 @@ puts "🌱 Seeding Users..."
 end
 
 puts "🌱 Seeding Blogs..."
-50.times do
+15.times do
     Blog.create(
         title: Faker::Lorem.sentence(word_count: 3),
         body: Faker::Lorem.paragraph_by_chars(number: 512),
@@ -28,7 +29,7 @@ puts "🌱 Seeding Blogs..."
 end
 
 puts "🌱 Seeding Comments..."
-250.times do
+150.times do
     Comment.create(
         body: Faker::Quote.yoda,
         blog: Blog.all.sample,
@@ -37,19 +38,19 @@ puts "🌱 Seeding Comments..."
 end
 
 puts "🌱 Seeding Likes..."
-500.times do
+350.times do
     Bloglike.create(
         liked: [true, false].sample,
         blog: Blog.all.sample,
         user: User.all.sample,
     )
 end
-500.times do
+
+350.times do
     Commentlike.create(
         liked: [true, false].sample,
         comment: Comment.all.sample,
         user: User.all.sample,
     )
 end
-
 puts "🌱 Seeding Done"
