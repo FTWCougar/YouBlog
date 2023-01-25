@@ -23,17 +23,16 @@ function App() {
                     if (data.errors) {
                     } else {
                         setUser(data);
-                        const url = window.location.href.split(
-                            "http://localhost:4000"
-                        );
-                        if (url[1] === "/login" || url[1] === "/signup") {
+                        const url = new URL(window.location.href);
+                        if (['/login', '/signup'].includes(url.pathname)) {
                             navigate("/");
                         }
                     }
                 });
             } else {
-                const url = window.location.href.split("http://localhost:4000");
-                if (url[1] !== "/signup") {
+                const url = new URL(window.location.href);
+                console.log(url);
+                if (url.pathname !== "/signup") {
                     navigate("/login");
                 }
             }

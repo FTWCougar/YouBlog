@@ -62,12 +62,10 @@ const Login = ({ setUser }) => {
                         />
                         <button className="login-buttons">Login</button>
                     </div>
-                    <p>
-                        Signup{" "}
-                        <NavLink to="/signup" className="nav-link">
-                            here
-                        </NavLink>
-                    </p>
+                    <br />
+                    <NavLink to="/signup" className="nav-link">
+                        Signup here
+                    </NavLink>
                 </form>
             </div>
         </>
