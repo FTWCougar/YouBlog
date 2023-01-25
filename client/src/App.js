@@ -7,6 +7,9 @@ import HomePage from "./components/HomePage";
 import NavBar from "./components/NavBar";
 import ShowBlog from "./components/BlogView";
 import ProfilePage from "./components/ProfilePage";
+import BlogPost from "./components/BlogPost";
+import {ToastContainer} from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
     const [user, setUser] = useState(null);
@@ -40,6 +43,8 @@ function App() {
 
 
     return (
+        <>
+        <ToastContainer/>
         <div className="App">
             {user ? <NavBar user={user} setUser={setUser} /> : null}
             <Routes>
@@ -51,12 +56,17 @@ function App() {
                 {user ? (
                     <Route
                         path={`/${user.username}`}
-                        element={<ProfilePage user={user} />}
+                        element={<ProfilePage setUser={setUser} user={user} />}
                     />
                 ) : null}
 
-                <Route path={`/blogs/:id`} element={<ShowBlog/>} />
-
+                <Route path={`/blogs/:id`} element={<ShowBlog user={user}/>} />
+                <Route
+                    path="/post"
+                    element={
+                      <BlogPost user={user}/>
+                    }
+                />
                 <Route
                     path="/"
                     element={
@@ -68,6 +78,7 @@ function App() {
                 />
             </Routes>
         </div>
+        </>
     );
 }
 

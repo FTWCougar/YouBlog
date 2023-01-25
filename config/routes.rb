@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
     namespace :api do
+        resources :userkeeps
         resources :commentlikes
         resources :bloglikes
-        resources :saves
-        resources :saveds
         resources :comments
         resources :blogs
         resources :users

@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
-const Login = ({ setUser, user }) => {
+const Login = ({ setUser }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [errors, setErrors] = useState([]);
 
     const navigate = useNavigate();
-   
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -20,13 +19,20 @@ const Login = ({ setUser, user }) => {
         }).then((r) => {
             if (r.ok) {
                 r.json().then((user) => {
-                  setUser(user)
-                  navigate("/");
+                    setUser(user);
+                    navigate("/");
                 });
             } else {
                 r.json().then((err) => {
-                    console.log(err);
-                    setErrors(err.error);
+                    toast.error(err.errors[0], {
+                        position: "top-center",
+                        autoClose: 4500,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        theme: "dark",
+                    });
                 });
             }
         });
@@ -56,9 +62,11 @@ const Login = ({ setUser, user }) => {
                         />
                         <button className="login-buttons">Login</button>
                     </div>
-                    <p className="error">{errors}</p>
                     <p>
-                        Signup <NavLink to="/signup" className="nav-link">here</NavLink>
+                        Signup{" "}
+                        <NavLink to="/signup" className="nav-link">
+                            here
+                        </NavLink>
                     </p>
                 </form>
             </div>

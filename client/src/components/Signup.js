@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Signup() {
     const [newEmail, setNewEmail] = useState("");
@@ -25,7 +26,21 @@ function Signup() {
             .then((r) => r.json())
             .then((data) => {
                 console.log(data);
-                navigate("/login");
+                if (!data.errors) {
+                    navigate("/login");
+                } else {
+                    data.errors.forEach((error) => {
+                        toast.error(error, {
+                            position: "top-center",
+                            autoClose: 4500,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            theme: "dark",
+                        });
+                    });
+                }
             });
     };
     return (
@@ -69,7 +84,10 @@ function Signup() {
                         <button className="login-buttons">Signup</button>
                     </div>
                     <p>
-                        Back to <NavLink to="/login" className="nav-link">login</NavLink>
+                        Back to{" "}
+                        <NavLink to="/login" className="nav-link">
+                            login
+                        </NavLink>
                     </p>
                 </form>
             </div>
