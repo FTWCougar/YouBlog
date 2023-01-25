@@ -27,23 +27,18 @@
   background-color: rgb(30, 30, 30);
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey; 
 }
  
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgb(96, 96, 96);
   border-radius: 10px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(30, 30, 30); 
 }
-
-
 
 .login-input {
   padding: 5%;
@@ -52,10 +47,13 @@
   border: none;
   background-color: rgba(255, 255, 240, .75);
   width: 90%;
+  transition: transform 500ms;
+
 }
 
 .login-input:hover {
   width: 91%;
+transform: scale(1.01);
 }
 
 .login-buttons {
@@ -67,11 +65,15 @@
   font-size: 12px;
   width: 50%;
   text-align: center;
+  transition: transform 500ms;
+
 }
 
 .login-buttons:hover {
   background-color: rgba(100, 149, 237, .75);
   width: 51%;
+
+transform: scale(1.01);
 }
 
 .login-title {
@@ -96,13 +98,15 @@
   display: flex;
   flex-direction: column;
   background-color: rgb(30, 30, 30);
+  box-shadow: 5px 5px 10px 5px rgba(138, 43, 226, .75);
   padding: 4%;
   padding-top: 2%;
   padding-bottom: 2%;
   border-radius: 50px;
   width: 400px;
   min-width: 100px;
-  margin: 5px;
+  margin: 15px;  
+  transition: transform 500ms;
 }
 
 .blogs {
@@ -116,6 +120,7 @@
 
 h1, h2, p {
   color: white;
+  font-family: "Monaco", monospace;
 }
 
 .home-page {
@@ -131,14 +136,24 @@ hr {
 .nav-link {
   color: white;
   text-decoration: none;
+  font-family: "Monaco", monospace;
 }
 
 .nav-link:hover {
-  color:aqua;
+  color:rgb(232, 204, 94);
   text-decoration: underline;
+  font-family: "Monaco", monospace;
 }
 .blog-card:hover .blog-title{
-  color: #8a2be2;
+  color: rgb(138, 43, 226);
+}
+
+.blog-title {
+  color:rgb(232, 204, 94);
+}
+
+.blog-card:hover{
+  transform: scale(1.01);
 }
 
 .nav-bar .nav-link {
@@ -162,17 +177,6 @@ hr {
 
 }
 
-@media screen and (max-width: 768px) {
-  .nav-bar {
-      flex-direction: column;
-  }
-  .nav-bar .nav-link {
-      margin: 10px 0;
-  }
-  .blogs {
-    padding-top: 125px;
-  }
-}
 .BlogPost-header {
   background-color: #282c34;
   min-height: 5vh;
@@ -186,73 +190,83 @@ hr {
   text-align: center;
   padding: 12px;
  }
+
  .wrapper-class {
   padding: 1rem;
 }
+
 .editor-class {
   background-color:lightgray;
   padding: 1rem;
   border: 1px solid #ccc;
 }
+
 .toolbar-class {
   border: 1px solid #ccc;
 }
+
 .preview {
   padding: 1rem;
   margin-top: 1rem;
 }
+
 .blog-div{
   display: flex;
   justify-content: center;
   flex-direction: column;
   width: 75%;
   margin: auto;
-  background-color: #ccc;
+  background-color: rgba(204, 204, 204, .25);
   padding: 2%;
   border-radius: 15px;
   align-content: center;
 }
+
 .comment-buttons{
   display: flex;
-  flex-direction: row ;
+  flex-direction: row;
   justify-content: center;
+  /* justify-content: space-between; */
 }
+
 .blog-buttons{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 1%;
 }
+
 .blog-reactions{
   display: flex;
 }
-.blog-save {
-  display: flex;
-}
+
 .blog-comments {
-  background-color: #8a2be2;
+  background-color: rgba(204, 204, 204, .25);
   width: 55%;
   margin: auto;
   border-radius: 15px;
   padding: 1%;
+  margin-bottom: 20px;
 }
 
 .comment-card {
-  background-color: aqua;
+  background-color: rgba(0, 0, 0, .75);
+  box-shadow: 5px 5px 10px 5px rgba(232, 204, 94, .75);
   padding: 1%;
   width: 80%;
   margin: auto;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   border-radius: 15px;
   overflow-wrap: break-word;
 }
 
 .comment-form {
-  background-color: aqua;
+  background-color: rgba(0, 0, 0, .75);
+  box-shadow: 5px 5px 10px 5px rgba(138, 43, 226, .75);
   padding: 1%;
   width: 40%;
   margin: auto;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
   border-radius: 15px;
   overflow-wrap: break-word;
 }
@@ -276,10 +290,157 @@ hr {
 .user-blog{
   float: left;
 }
+
 .user-saves {
   float: right;
 }
+
 .profile-blogs{
   display: flex;
   justify-content: space-around;
+}
+
+.delete-button {
+  border-radius: 15;
+  width: 20%;
+  background: none;
+  border: none;
+  color: white;
+  margin-left: auto;
+}
+
+.delete-button:hover{
+  color: red;
+}
+
+.blog-save {
+  width: 25px;
+  height: 25px;
+  margin-top: 16px;
+  margin-left: 10px;
+}
+
+.logout-button {
+  background: none;
+  color: white;
+  border:none;
+  font-family: "Monaco", monospace;
+}
+
+.logout-button:hover{
+  color:rgb(232, 204, 94);
+  text-decoration: underline;
+  font-family: "Monaco", monospace;
+}
+
+.post-input{
+  padding: 5%;
+  margin: 2%;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(255, 255, 240, .75);
+  width: 90%;
+  transition: transform 500ms;
+}
+
+.post-input:hover {
+  transform: scale(1.01);
+}
+
+.post-textarea:hover {
+  transform: scale(1.01);
+}
+
+.post-textarea{
+  padding: 5%;
+  margin: 2%;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(255, 255, 240, .75);
+  width: 90%;
+  height: 100px;
+  resize: none;
+  transition: transform 500ms;
+}
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(128, 128, 128, .5);
+  padding: 4%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  border-radius: 50px;
+  max-width: 500px;
+  min-width: 300px;
+}
+
+.post-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.post-button{
+  padding: 5%;
+  margin: auto;
+  border-radius: 15px;
+  border: none;
+  background-color: rgba(138, 43, 226, .75);
+  font-size: 12px;
+  width: 50%;
+  transition: transform 500ms;
+  color: white;
+}
+
+.post-button:hover {
+  background-color: rgba(232, 204, 94, .75);
+  color:black;
+  transform: scale(1.01);
+}
+
+.comment-input {
+  padding: 5%;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(255, 255, 240, .75);
+  width: 80%;
+  transition: transform 500ms;
+}
+
+.comment-input:hover{
+  transform: scale(1.01);
+} 
+
+.comment-post-button {
+  padding: 5%;
+  margin: auto;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  border: none;
+  font-size: 12px;
+  width: 50%;
+  transition: transform 500ms;
+  background-color: rgba(232, 204, 94, .75);
+}
+
+.comment-post-button:hover {
+  transform: scale(1.01);
+}
+
+.load-button {
+  padding: 1%;
+  margin: auto;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: none;
+  /* width: 15%;
+  height: 15%; */
+  transition: transform 500ms;
+  background-color: rgba(232, 204, 94, .75);
+}
+
+.load-button:hover {
+  transform: scale(1.01);
 }

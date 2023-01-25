@@ -3,7 +3,7 @@ class BlogSerializer < ActiveModel::Serializer
     belongs_to :user
     
     def comments
-        ActiveModel::SerializableResource.new(object.comments.order(created_at: :desc))
+        ActiveModelSerializers::SerializableResource.new(object.comments.order(created_at: :desc))
     end
 
 end

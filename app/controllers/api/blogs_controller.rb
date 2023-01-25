@@ -11,4 +11,9 @@ class Api::BlogsController < ApplicationController
         blog = Blog.create!(title: params[:title], body: params[:body], img: params[:img], user_id: params[:user])
         render json: blog, status: :created
     end
+    def destroy
+        blog = Blog.find_by!(id: params[:id])
+        blog.destroy
+        render json: blog, status: :ok
+    end
 end

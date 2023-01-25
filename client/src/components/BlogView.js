@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Comments from "./Comments";
-import likeBtn from "../Images/thumbs-up-icon-white.png"
-
+import likeBtn from "../Images/thumbs-up-icon-purple.png";
+import saveBtn from "../Images/bookmark-icon-gold.png";
+import { toast } from "react-toastify";
 
 const ShowBlog = ({ user }) => {
     const [blog, setBlog] = useState(null);
@@ -41,8 +42,25 @@ const ShowBlog = ({ user }) => {
                 console.log(data);
                 if (!data.errors) {
                     setBlog(data);
+                    toast.success("Reaction Successful", {
+                        position: "top-center",
+                        autoClose: 2500,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        theme: "dark",
+                    });
                 } else {
-                    alert(`You have already reacted`);
+                    toast.error("You have already reacted", {
+                        position: "top-center",
+                        autoClose: 2500,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        theme: "dark",
+                    });
                 }
             });
     };
@@ -61,9 +79,33 @@ const ShowBlog = ({ user }) => {
         fetch("/api/userkeeps", configObj)
             .then((r) => r.json())
             .then((data) => {
-                console.log(data);
+                if (!data.errors) {
+                    toast.success("Blog Saved", {
+                        position: "top-center",
+                        autoClose: 2500,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        theme: "dark",
+                    });
+                } else {
+                    if(data.errors[0] === "User has already been taken"){
+                        data.errors[0] = "You already saved this blog"
+                    }
+                    toast.error(data.errors[0], {
+                        position: "top-center",
+                        autoClose: 2500,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        theme: "dark",
+                    });
+                }
             });
     };
+
     return (
         <div>
             <br />
@@ -75,22 +117,34 @@ const ShowBlog = ({ user }) => {
                     <div className="blog-reactions">
                         <p>{blog.get_like}</p>
                         <div onClick={() => likeHandler(true)}>
-                            <img className='blog-like' src={likeBtn} alt="like-btn"/>
+                            <img
+                                className="blog-like"
+                                src={likeBtn}
+                                alt="like-btn"
+                            />
                         </div>
                         <div onClick={() => likeHandler(false)}>
-                            <img  className="blog-dislike" src={likeBtn} alt="like-btn"/>
+                            <img
+                                className="blog-dislike"
+                                src={likeBtn}
+                                alt="like-btn"
+                            />
                         </div>
-     
+
                         <p>{blog.get_dislike}</p>
                     </div>
-                    <div className="blog-save">
-                        <button onClick={saveHandler}>Save</button>
+                    <div onClick={saveHandler}>
+                        <img
+                            className="blog-save"
+                            src={saveBtn}
+                            alt="save-btn"
+                        />
                     </div>
                 </div>
                 <h1>{blog.title}</h1>
                 <p>{blog.body}</p>
             </div>
-            <br/>
+            <br />
             <div className="blog-comments">
                 <h1>Comments</h1>
                 <Comments blog={blog} setBlog={setBlog} user={user} />

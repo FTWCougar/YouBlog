@@ -1,11 +1,11 @@
 import React from "react";
 import UserBlog from "./UserBlog";
 
-const ProfilePage = ({user}) => {
+const ProfilePage = ({setUser, user}) => {
   return (
   <div>
     <h1>{user.username}</h1>
-    <UserBlog user={user}/>
+    <UserBlog setUser={setUser} user={user}/>
     
   </div>
   )

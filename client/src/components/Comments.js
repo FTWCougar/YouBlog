@@ -1,16 +1,17 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import CommentPost from "./CommentPost";
+import likeBtn from "../Images/thumbs-up-icon-purple.png";
 
 const Comments = ({ blog, user, setBlog }) => {
     const [clicked, setClicked] = useState(false);
 
     const mappedComments = () => {
-        const likeHandler = (e) => {
-            console.log(e.target.name)
+        const likeHandler = (value, comment) => {
             const postObj = {
-                liked: e.target.value,
+                liked: value,
                 user: user.id,
-                comment: e.target.name
+                comment: comment
             }
             const configObj = {
                 method: "POST",
@@ -25,8 +26,25 @@ const Comments = ({ blog, user, setBlog }) => {
                 console.log(data)
                 if(!data.errors){
                     setBlog(data)
+                    toast.success("Reaction Successful", {
+                        position: "top-center",
+                        autoClose: 2500,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        theme: "dark",
+                    })
                 }else {
-                    alert(`You have already reacted`)
+                    toast.error("You have already reacted", {
+                        position: "top-center",
+                        autoClose: 2500,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        theme: "dark",
+                    })
                 }
             })
         }
@@ -41,17 +59,28 @@ const Comments = ({ blog, user, setBlog }) => {
                 console.log(comment);
                 return (
                     <div key={comment.id} className="comment-card">
-                        <h1>{comment.user.username}</h1>
-                        <p>{comment.body}</p>
-                        <button value={true} name={comment.id} onClick={likeHandler}>
-                            Like
-                        </button>
-                        <p>{comment.get_like}</p>
-                        <button value={false} name={comment.id} onClick={likeHandler}>
-                            Dislike
-                        </button>
-                        <p>{comment.get_dislike}</p>
+                    <h1>{comment.user.username}</h1>
+                    <p>{comment.body}</p>
+                    <div className="comment-buttons">
+                    <p>{comment.get_like}</p>
+                    <div onClick={() => likeHandler(true, comment.id)}>
+                        <img
+                            className="blog-like"
+                            src={likeBtn}
+                            alt="like-btn"
+                        />
                     </div>
+                    <div onClick={() => likeHandler(false, comment.id)}>
+                        <img
+                            className="blog-dislike"
+                            src={likeBtn}
+                            alt="like-btn"
+                        />
+                    </div>
+                    <p>{comment.get_dislike}</p>
+                    </div>
+                    <br/>
+                </div>
                 );
             });
             return test;
@@ -64,12 +93,20 @@ const Comments = ({ blog, user, setBlog }) => {
                         <p>{comment.body}</p>
                         <div className="comment-buttons">
                         <p>{comment.get_like}</p>
-                        <button value={true} name={comment.id} onClick={likeHandler}>
-                            Like
-                        </button>
-                        <button value={false} name={comment.id} onClick={likeHandler}>
-                            Dislike
-                        </button>
+                        <div onClick={() => likeHandler(true, comment.id)}>
+                            <img
+                                className="blog-like"
+                                src={likeBtn}
+                                alt="like-btn"
+                            />
+                        </div>
+                        <div onClick={() => likeHandler(false, comment.id)}>
+                            <img
+                                className="blog-dislike"
+                                src={likeBtn}
+                                alt="like-btn"
+                            />
+                        </div>
                         <p>{comment.get_dislike}</p>
                         </div>
                         <br/>
@@ -85,7 +122,7 @@ const Comments = ({ blog, user, setBlog }) => {
             <CommentPost setBlog={setBlog} blog={blog} user={user} />
             {mappedComments()}
             {!clicked && blog.comments.length > 5 ? (
-                <button onClick={() => setClicked(true)}>Load More</button>
+                <button className="load-button" onClick={() => setClicked(true)}>Load More</button>
             ) : null}
         </div>
     );

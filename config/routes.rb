@@ -3,7 +3,7 @@ Rails.application.routes.draw do
         resources :userkeeps
         resources :commentlikes
         resources :bloglikes
-              resources :comments
+        resources :comments
         resources :blogs
         resources :users
         get "/me", to: "users#show"

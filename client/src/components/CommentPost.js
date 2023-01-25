@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 // import { useNavigate } from "react-router-dom";
 
 const CommentPost = ({user, setBlog, blog}) => {
@@ -23,6 +24,15 @@ const CommentPost = ({user, setBlog, blog}) => {
         .then(data => {
             console.log(data)
             setBlog(data)
+            toast.success("Comment Posted", {
+                position: "top-center",
+                autoClose: 2500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme: "dark",
+            })
         })
         
     }
@@ -30,10 +40,10 @@ const CommentPost = ({user, setBlog, blog}) => {
     <div className="comment-form">
         <p>Leave a comment...</p>
         <form>
-            <input value={body} placeholder="Body" onChange={(e) => setBody(e.target.value)}/>
+            <input className="comment-input" value={body} placeholder="Body" onChange={(e) => setBody(e.target.value)}/>
             <br/>
             <br/>
-            <button onClick={handleSubmit}>Post</button>
+            <button className="comment-post-button" onClick={handleSubmit}>Post</button>
         </form>
     </div>
   )

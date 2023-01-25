@@ -1,8 +1,8 @@
 class Blog < ApplicationRecord
     belongs_to :user
-    has_many :bloglikes
-    has_many :userkeeps
-    has_many :comments
+    has_many :bloglikes, dependent: :destroy
+    has_many :userkeeps, dependent: :destroy
+    has_many :comments, dependent: :destroy
     accepts_nested_attributes_for :comments
     accepts_nested_attributes_for :user
 
