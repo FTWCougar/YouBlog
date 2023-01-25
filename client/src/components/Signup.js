@@ -83,12 +83,10 @@ function Signup() {
                         />
                         <button className="login-buttons">Signup</button>
                     </div>
-                    <p>
-                        Back to{" "}
-                        <NavLink to="/login" className="nav-link">
-                            login
-                        </NavLink>
-                    </p>
+                    <br />
+                    <NavLink to="/login" className="nav-link">
+                        Back to login
+                    </NavLink>
                 </form>
             </div>
         </>
