@@ -53,7 +53,7 @@ const UserBlog = ({ user, setUser }) => {
                 <div
                     onClick={() => navigate(`/blogs/${blog.id}`)}
                     key={blog.id}
-                    className="blog-card"
+                    className="user-card"
                 >
                     <button
                         className="delete-button"
@@ -61,8 +61,8 @@ const UserBlog = ({ user, setUser }) => {
                     >
                         Delete Blog
                     </button>
-                    <h2 className="blog-username">{blog.user.username}</h2>
                     <h1 className="blog-title">{blog.title}</h1>
+                    <h4 className="blog-username">{blog.user.username}</h4>
                 </div>
             );
         });
@@ -89,13 +89,13 @@ const UserBlog = ({ user, setUser }) => {
             <div
                 onClick={() => navigate(`/blogs/${userkeep.blog.id}`)}
                 key={userkeep.blog.id}
-                className="blog-card"
+                className="user-card"
             >
                 <button className="delete-button" onClick={handleSavedDelete}>
                     Remove Save
                 </button>
-                <h2 className="blog-username">{userkeep.bloguser.username}</h2>
                 <h1 className="blog-title">{userkeep.blog.title}</h1>
+                <h4 className="blog-username">{userkeep.bloguser.username}</h4>
             </div>
         );
     });
