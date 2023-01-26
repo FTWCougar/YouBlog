@@ -94,19 +94,44 @@ transform: scale(1.01);
   font-weight: bold;
 }
 
+.blog-username {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  align-content: flex-end;
+}
+
 .blog-card {
   display: flex;
   flex-direction: column;
   background-color: rgb(30, 30, 30);
-  box-shadow: 5px 5px 10px 5px rgba(138, 43, 226, .75);
-  padding: 4%;
-  padding-top: 2%;
-  padding-bottom: 2%;
-  border-radius: 50px;
+  box-shadow: 2px 2px 5px 2px rgba(138, 43, 226, .75);
+  padding: 16px;
+  border-radius: 5px;
+  width: 400px;
+  min-width: 100px;
+  margin: 10px;  
+  transition: transform 500ms;
+  height: 150px;
+  justify-content: space-between;
+}
+.user-card {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(30, 30, 30);
+  box-shadow: 2px 2px 5px 2px rgba(138, 43, 226, .75);
+  padding: 16px;
+  border-radius: 5px;
   width: 400px;
   min-width: 100px;
   margin: 15px;  
   transition: transform 500ms;
+  height: 200px;
+  justify-content: space-between;
+}
+
+.user-card:hover {
+  cursor: pointer;
 }
 
 .blogs {
@@ -118,9 +143,14 @@ transform: scale(1.01);
 
 }
 
-h1, h2, p {
+h1, p{
   color: white;
   font-family: "Monaco", monospace;
+}
+h2, h4 {
+  color: white;
+  font-family: "Monaco", monospace;
+  margin: 0;
 }
 
 .home-page {
@@ -146,6 +176,7 @@ hr {
 }
 .blog-card:hover .blog-title{
   color: rgb(138, 43, 226);
+  cursor: pointer;
 }
 
 .blog-title {
@@ -154,6 +185,11 @@ hr {
 
 .blog-card:hover{
   transform: scale(1.01);
+  cursor: pointer;
+}
+.user-card:hover{
+  transform: scale(1.01);
+  cursor: pointer;
 }
 
 .nav-bar .nav-link {
@@ -216,9 +252,9 @@ hr {
   flex-direction: column;
   width: 75%;
   margin: auto;
-  background-color: rgba(204, 204, 204, .25);
+  background-color: rgba(204, 204, 204, .125);
   padding: 2%;
-  border-radius: 15px;
+  border-radius: 5px;
   align-content: center;
 }
 
@@ -241,10 +277,10 @@ hr {
 }
 
 .blog-comments {
-  background-color: rgba(204, 204, 204, .25);
+  background-color: rgba(204, 204, 204, .125);
   width: 55%;
   margin: auto;
-  border-radius: 15px;
+  border-radius: 5px;
   padding: 1%;
   margin-bottom: 20px;
 }
@@ -256,7 +292,7 @@ hr {
   width: 80%;
   margin: auto;
   margin-bottom: 20px;
-  border-radius: 15px;
+  border-radius: 5px;
   overflow-wrap: break-word;
 }
 
@@ -267,7 +303,7 @@ hr {
   width: 40%;
   margin: auto;
   margin-bottom: 50px;
-  border-radius: 15px;
+  border-radius: 5px;
   overflow-wrap: break-word;
 }
 
@@ -301,16 +337,21 @@ hr {
 }
 
 .delete-button {
-  border-radius: 15;
-  width: 20%;
+  padding: 0px;
   background: none;
   border: none;
   color: white;
   margin-left: auto;
+  transition: transform 500ms;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
 .delete-button:hover{
   color: red;
+  cursor: pointer;
+  transform: scale(1.01);
 }
 
 .blog-save {
@@ -336,7 +377,7 @@ hr {
 .post-input{
   padding: 5%;
   margin: 2%;
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
   background-color: rgba(255, 255, 240, .75);
   width: 90%;
@@ -354,7 +395,7 @@ hr {
 .post-textarea{
   padding: 5%;
   margin: 2%;
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
   background-color: rgba(255, 255, 240, .75);
   width: 90%;
@@ -370,9 +411,10 @@ hr {
   padding: 4%;
   padding-top: 2%;
   padding-bottom: 2%;
-  border-radius: 50px;
+  border-radius: 5px;
   max-width: 500px;
   min-width: 300px;
+  box-shadow: 5px 5px 10px 5px rgba(138, 43, 226, .75);
 }
 
 .post-container {
@@ -385,7 +427,7 @@ hr {
 .post-button{
   padding: 5%;
   margin: auto;
-  border-radius: 15px;
+  border-radius: 5px;
   border: none;
   background-color: rgba(138, 43, 226, .75);
   font-size: 12px;
@@ -402,7 +444,7 @@ hr {
 
 .comment-input {
   padding: 5%;
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
   background-color: rgba(255, 255, 240, .75);
   width: 80%;
@@ -417,7 +459,7 @@ hr {
   padding: 5%;
   margin: auto;
   margin-bottom: 15px;
-  border-radius: 15px;
+  border-radius: 5px;
   border: none;
   font-size: 12px;
   width: 50%;
@@ -433,7 +475,7 @@ hr {
   padding: 1%;
   margin: auto;
   margin-bottom: 15px;
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
   /* width: 15%;
   height: 15%; */
@@ -449,7 +491,7 @@ hr {
   padding: 1%;
   margin: auto;
   margin-bottom: 15px;
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
   /* width: 15%;
   height: 15%; */
