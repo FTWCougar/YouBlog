@@ -444,3 +444,19 @@ hr {
 .load-button:hover {
   transform: scale(1.01);
 }
+
+.delete-account-button {
+  padding: 1%;
+  margin: auto;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: none;
+  /* width: 15%;
+  height: 15%; */
+  transition: transform 500ms;
+  background-color: rgba(232, 204, 94, .75);
+}
+
+.delete-account-button:hover {
+  transform: scale(1.01);
+}
