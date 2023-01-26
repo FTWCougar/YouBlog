@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-// import { useNavigate } from "react-router-dom";
 
 const CommentPost = ({user, setBlog, blog}) => {
     const [body, setBody] = useState("")
-    // const navigate = useNavigate()
     
     const handleSubmit = (e) => {
         e.preventDefault()

@@ -15,6 +15,15 @@ class Api::UsersController < ApplicationController
         render json: users, status: :ok
     end
 
+    def destroy
+        user = User.find_by!(id: params[:id])
+        # user.blogs.destroy_all
+        # user.comments.destroy_all
+        session.delete :user_id
+        user.destroy
+        render json: user, status: :ok
+    end
+
     private
 
     def user_params
