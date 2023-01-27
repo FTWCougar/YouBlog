@@ -17,8 +17,7 @@ class Api::UsersController < ApplicationController
 
     def destroy
         user = User.find_by!(id: params[:id])
-        # user.blogs.destroy_all
-        # user.comments.destroy_all
+        user.blogs.destroy_all
         session.delete :user_id
         user.destroy
         render json: user, status: :ok
