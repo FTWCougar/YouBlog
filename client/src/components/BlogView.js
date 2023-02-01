@@ -90,8 +90,8 @@ const ShowBlog = ({ user }) => {
                         theme: "dark",
                     });
                 } else {
-                    if(data.errors[0] === "User has already been taken"){
-                        data.errors[0] = "You already saved this blog"
+                    if (data.errors[0] === "User has already been taken") {
+                        data.errors[0] = "You already saved this blog";
                     }
                     toast.error(data.errors[0], {
                         position: "top-center",
@@ -111,8 +111,9 @@ const ShowBlog = ({ user }) => {
             <br />
             <br />
             <div className="blog-div">
-                <h2>{blog.user.username}</h2>
-                <img src={blog.img} alt={blog.title} />
+                <h1>{blog.user.username}</h1>
+                <h4>{blog.title}</h4>
+                <img className="blog-img" src={blog.img} alt={blog.title} />
                 <div className="blog-buttons">
                     <div className="blog-reactions">
                         <p>{blog.get_like}</p>
@@ -141,7 +142,6 @@ const ShowBlog = ({ user }) => {
                         />
                     </div>
                 </div>
-                <h1>{blog.title}</h1>
                 <p>{blog.body}</p>
             </div>
             <br />

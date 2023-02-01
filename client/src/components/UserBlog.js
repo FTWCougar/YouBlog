@@ -103,11 +103,11 @@ const UserBlog = ({ user, setUser }) => {
     return (
         <div className="profile-blogs">
             <div className="user-blog">
-                <h1>Your Blogs</h1>
+                <h4>Your Blogs</h4>
                 {mappedTitles}
             </div>
             <div className="user-saves">
-                <h1>Saved</h1>
+                <h4>Saved Blogs</h4>
                 {mappedSaves}
             </div>
         </div>
