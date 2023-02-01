@@ -42,7 +42,7 @@ const BlogPost = ({ user }) => {
     return (
         <div className="post-container">
             <form className="post-form">
-            <h1>Create A Blog Here</h1>
+            <h1>Create A Blog</h1>
                 <input
                     className="post-input"
                     value={title}

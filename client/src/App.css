@@ -5,7 +5,7 @@
 .login-container {
   min-height: 100vh;
   display: flex;
-  background: linear-gradient(45deg, limegreen, darkblue);
+  background: linear-gradient(45deg, rgb(138, 43, 226), rgb(232, 204, 94));
   align-items: center;
   justify-content: center;
 }
@@ -13,11 +13,11 @@
 .login-form {
   display: flex;
   flex-direction: column;
-  background-color: rgba(128, 128, 128, .75);
+  background-color: rgba(0, 0, 0, 0.608);
   padding: 4%;
   padding-top: 2%;
   padding-bottom: 2%;
-  border-radius: 50px;
+  border-radius: 5px;
   max-width: 500px;
   min-width: 300px;
 }
@@ -33,7 +33,7 @@
  
 ::-webkit-scrollbar-thumb {
   background: rgb(96, 96, 96);
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -43,7 +43,7 @@
 .login-input {
   padding: 5%;
   margin: 2%;
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
   background-color: rgba(255, 255, 240, .75);
   width: 90%;
@@ -53,15 +53,15 @@
 
 .login-input:hover {
   width: 91%;
-transform: scale(1.01);
+  transform: scale(1.01);
 }
 
 .login-buttons {
   padding: 5%;
   margin: 2%;
-  border-radius: 15px;
+  border-radius: 5px;
   border: none;
-  background-color: rgba(255, 255, 240, .75);
+  background-color: rgba(232, 204, 94, .75);
   font-size: 12px;
   width: 50%;
   text-align: center;
@@ -70,10 +70,9 @@ transform: scale(1.01);
 }
 
 .login-buttons:hover {
-  background-color: rgba(100, 149, 237, .75);
+  background-color: rgba(138, 43, 226, .75);
   width: 51%;
-
-transform: scale(1.01);
+  transform: scale(1.01);
 }
 
 .login-title {
@@ -104,8 +103,8 @@ transform: scale(1.01);
 .blog-card {
   display: flex;
   flex-direction: column;
-  background-color: rgb(30, 30, 30);
-  box-shadow: 2px 2px 5px 2px rgba(138, 43, 226, .75);
+  background-color: rgba(0, 0, 0, .75);
+  border: solid 2px rgba(138, 43, 226, .75);
   padding: 16px;
   border-radius: 5px;
   width: 400px;
@@ -118,8 +117,8 @@ transform: scale(1.01);
 .user-card {
   display: flex;
   flex-direction: column;
-  background-color: rgb(30, 30, 30);
-  box-shadow: 2px 2px 5px 2px rgba(138, 43, 226, .75);
+  background-color: rgba(0, 0, 0, .75);
+  border: solid 2px rgba(138, 43, 226, .75);
   padding: 16px;
   border-radius: 5px;
   width: 400px;
@@ -147,20 +146,11 @@ h1, p{
   color: white;
   font-family: "Monaco", monospace;
 }
+
 h2, h4 {
   color: white;
   font-family: "Monaco", monospace;
   margin: 0;
-}
-
-.home-page {
-  background-color: black;
-}
-
-hr {
-  background: radial-gradient(rgb(255, 255, 255),rgb(255, 255, 255, .000001),rgba(255, 255, 255, .00001));
-  border: none;
-  height: 5px;
 }
 
 .nav-link {
@@ -262,7 +252,6 @@ hr {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  /* justify-content: space-between; */
 }
 
 .blog-buttons{
@@ -287,7 +276,7 @@ hr {
 
 .comment-card {
   background-color: rgba(0, 0, 0, .75);
-  box-shadow: 5px 5px 10px 5px rgba(232, 204, 94, .75);
+  border: solid 2px rgba(232, 204, 94, .75);
   padding: 1%;
   width: 80%;
   margin: auto;
@@ -298,7 +287,7 @@ hr {
 
 .comment-form {
   background-color: rgba(0, 0, 0, .75);
-  box-shadow: 5px 5px 10px 5px rgba(138, 43, 226, .75);
+  border: solid 2px rgba(138, 43, 226, .75);
   padding: 1%;
   width: 40%;
   margin: auto;
@@ -341,11 +330,8 @@ hr {
   background: none;
   border: none;
   color: white;
-  margin-left: auto;
   transition: transform 500ms;
   display: flex;
-  justify-content: flex-end;
-  flex-wrap: wrap;
 }
 
 .delete-button:hover{
@@ -407,14 +393,14 @@ hr {
 .post-form {
   display: flex;
   flex-direction: column;
-  background-color: rgba(128, 128, 128, .5);
+  background-color: rgba(0, 0, 0, .75);
   padding: 4%;
   padding-top: 2%;
   padding-bottom: 2%;
   border-radius: 5px;
   max-width: 500px;
   min-width: 300px;
-  box-shadow: 5px 5px 10px 5px rgba(138, 43, 226, .75);
+  border: solid 2px rgba(138, 43, 226, .75);
 }
 
 .post-container {
@@ -422,6 +408,7 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .post-button{
@@ -429,7 +416,7 @@ hr {
   margin: auto;
   border-radius: 5px;
   border: none;
-  background-color: rgba(138, 43, 226, .75);
+  background-color: rgba(138, 43, 226, 0.749);
   font-size: 12px;
   width: 50%;
   transition: transform 500ms;
@@ -438,7 +425,6 @@ hr {
 
 .post-button:hover {
   background-color: rgba(232, 204, 94, .75);
-  color:black;
   transform: scale(1.01);
 }
 
@@ -477,8 +463,6 @@ hr {
   margin-bottom: 15px;
   border-radius: 5px;
   border: none;
-  /* width: 15%;
-  height: 15%; */
   transition: transform 500ms;
   background-color: rgba(232, 204, 94, .75);
 }
@@ -493,12 +477,20 @@ hr {
   margin-bottom: 15px;
   border-radius: 5px;
   border: none;
-  /* width: 15%;
-  height: 15%; */
   transition: transform 500ms;
   background-color: rgba(232, 204, 94, .75);
 }
 
 .delete-account-button:hover {
+  background-color: rgba(138, 43, 226, 0.749);
   transform: scale(1.01);
+}
+
+.profile-name{
+  text-transform: capitalize;
+}
+
+.blog-img{
+  border-radius: 5px;
+  border: solid 2px rgba(232, 204, 94, .75);
 }

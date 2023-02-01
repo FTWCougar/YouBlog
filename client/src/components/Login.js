@@ -41,7 +41,7 @@ const Login = ({ setUser }) => {
 
     return (
         <>
-            <h1 className="login-title">Phase 5 Project</h1>
+            <h1 className="login-title">YouBlog</h1>
             <div className="login-container">
                 <form className="login-form" onSubmit={handleLogin}>
                     <h2>Login</h2>

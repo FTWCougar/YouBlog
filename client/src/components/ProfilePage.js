@@ -15,7 +15,7 @@ const ProfilePage = ({setUser, user}) => {
 
   return (
   <div>
-    <h1>{user.username}</h1>
+    <h1 className="profile-name">{user.username}</h1>
     <button className="delete-account-button" onClick={deleteAccount}>Delete Account</button>
     <UserBlog setUser={setUser} user={user}/>
     
